@@ -2,16 +2,16 @@ name: Autorun
 description: The Run key makes the program run every time the user logs on, while the RunOnce key makes the program run one time, and then the key is deleted. These keys can be set for the user or the machine.
 commands:
   - command: |
-      # C:\Window\system3\confi\SOFTWARE: 
-      Microsof\Window\CurrentVersio\Run
-      Microsof\Window\CurrentVersio\RunOnce
-      WOW6432Nod\Microsof\Window\CurrentVersio\Run
-      WOW6432Nod\Microsof\Window\CurrentVersio\RunOnce
+      # C:\Windows\system32\config\SOFTWARE: 
+      Microsoft\Windows\CurrentVersion\Run
+      Microsoft\Windows\CurrentVersion\RunOnce
+      WOW6432Node\Microsoft\Windows\CurrentVersion\Run
+      WOW6432Node\Microsoft\Windows\CurrentVersion\RunOnce
 
-      # C:\User\<User\ntuser.dat: 
-      Softwar\Microsof\Window\CurrentVersio\Run
-      Softwar\Microsof\Window\CurrentVersio\RunOnce
-    description: Registry keys for SOFTWARe and ntuser.dat
+      # C:\Users\<User>\ntuser.dat: 
+      Software\Microsoft\Windows\CurrentVersion\Run
+      Software\Microsoft\Windows\CurrentVersion\RunOnce
+    description: Registry keys for SOFTWARE and ntuser.dat
 tags:
   - execution
   - registry

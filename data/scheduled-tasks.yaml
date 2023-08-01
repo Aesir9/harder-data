@@ -1,4 +1,4 @@
-name: Schedule Tasks
+name: Scheduled Tasks
 description: Task Scheduler is a job scheduler in Microsoft Windows that launches computer programs or scripts at pre-defined times or after specified time intervals.
 commands:
   - command: Get-WinEvent -LogName Security | Where-Object {$_.Id -eq 4698}
@@ -11,7 +11,7 @@ tags:
   - execution
   - event-log
   - persistence
-linsk:
+links:
   - autorun
 references:
   - https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=4698

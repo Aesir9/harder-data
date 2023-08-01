@@ -8,7 +8,7 @@ required_fields = ['name', 'description', 'commands', 'tags']
 command_fields = ['command', 'description']
 tag_fields = ['name', 'slug']
 optional_fields = ['references', 'links']
-
+autogen_fields = ['slug', 'id']
 # Output Json needs to have these Keys:
 # {
 #   id: INT,
@@ -78,10 +78,20 @@ class Tool:
 
     def verify_fields(self):
         has_error = False
+        # check if fields are missing
         for reqfield in required_fields:
             if reqfield not in self.data:
                 has_error = True
                 self.error_with.append(f'FILE :: Missing field: {reqfield}')
+
+        # check optianal fields if there are typos
+        level0_fields = self.data.keys()
+        all_possible_fields = [*required_fields, *optional_fields, *autogen_fields]
+
+        for field in level0_fields:
+            if field not in all_possible_fields:
+                has_error = True
+                self.error_with.append(f'FILE :: Unrecognized field: {field}')
 
         if has_error:
             self.has_error = has_error
