@@ -1,0 +1,10 @@
+name: "Event ID: 4104"
+description: "PowerShell ScriptBlock logging."
+commands:
+  - command: |
+      Get-WinEvent -LogName "Microsoft-Windows-PowerShell/Operational"  | Where-Object {$_.Id -eq 4104}
+    description: "PowerShell command for the active system."
+tags:
+  - event-log
+  - execution
+  - command

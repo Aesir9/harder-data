@@ -27,16 +27,21 @@ optional_fields = ['references', 'links']
 
 # yapf: disable
 TAGS = [
-    {'name': 'Execution',      'slug': 'execution'},
-    {'name': 'Event Log',      'slug': 'event-log'},
-    {'name': 'Persistence',    'slug': 'persistence'},
-    {'name': 'Authentication', 'slug': 'authentication'},
-    {'name': 'Command',        'slug': 'command'},
-    {'name': 'Account',        'slug': 'account'},
-    {'name': 'Persistence',    'slug': 'persistence'},
-    {'name': 'Registry',       'slug': 'registry'},
-    {'name': 'Disk Image',     'slug': 'disk-image'},
-    {'name': 'MS Office',      'slug': 'office'},
+    # what are you looking for?
+    {'name': 'Execution',       'slug': 'execution'},
+    {'name': 'Download',        'slug': 'download'},
+    {'name': 'Authentication',  'slug': 'authentication'},
+    {'name': 'Command',         'slug': 'command'},
+    {'name': 'Account',         'slug': 'account'},
+    {'name': 'Persistence',     'slug': 'persistence'},
+
+    # what do you have?
+    {'name': 'Memory',          'slug': 'memory'},
+    {'name': 'Event Log',       'slug': 'event-log'},
+    {'name': 'Registry',        'slug': 'registry'},
+    {'name': 'Network Caputre', 'slug': 'network-capture'},
+    {'name': 'MS Office',       'slug': 'office'},
+    {'name': 'Disk Image',      'slug': 'disk-image'},
 ]
 # yapf: enable
 

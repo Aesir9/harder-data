@@ -3,7 +3,7 @@ description: "Failed authentication of an user. Logged in System EventLog."
 commands:
   - command: |
       Get-EventLog -LogName Security | Where-Object {$_.EventID -eq 4625}
-    description: "PowerShell Command for the active system."
+    description: "PowerShell command for the active system."
 tags:
   - event-log
   - authentication

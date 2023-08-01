@@ -1,0 +1,10 @@
+name: "Timezone"
+description: "Identify the set timezone of the system."
+commands:
+  - commmand: SYSTEM\ControlSet001\Control\TimeZoneInformation
+    description: Registry SYSTEM hive
+tags:
+  - registry
+  - memory
+references:
+  -

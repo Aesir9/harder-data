@@ -1,0 +1,14 @@
+name: "Event ID: 4720"
+description: "A user account was created."
+commands:
+  - command: |
+      Get-WinEvent -LogName Security | Where-Object {$_.Id -eq 4720}
+    description: "PowerShell command for the active system."
+tags:
+  - event-log
+  - authentication
+links:
+  - event-id-4624
+  - event-id-4726
+references:
+  - https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=4720

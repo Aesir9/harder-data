@@ -1,0 +1,17 @@
+name: Prefetch
+description: |
+  Improves performance on boot. It will load the started application into RAM when it's launched. Prefetch will store frequently used applications.
+  Prefetch monitors the first 10 seconds of an application's execution.
+commands:
+  - command: .\PECmd.exe -d C:\Windows\Prefetch\ --csv C:\Artifacts\LocalEventLogs
+    description: Parse Prefetch with PECmd.exe
+  - commmand: C:\Windows\Prefetch\*.pf
+    description: Location of the prefetch files.
+tags:
+  - execution
+  - disk-iamge
+  - command
+links:
+  -
+references:
+  - https://isc.sans.edu/diary/Forensic+Value+of+Prefetch/29168/
