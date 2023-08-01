@@ -84,7 +84,7 @@ class Tool:
                 has_error = True
                 self.error_with.append(f'FILE :: Missing field: {reqfield}')
 
-        # check optianal fields if there are typos
+        # check typos
         level0_fields = self.data.keys()
         all_possible_fields = [*required_fields, *optional_fields, *autogen_fields]
 
@@ -109,7 +109,7 @@ class Tool:
                 continue
             self.data['tags'].append(full_tag)
         if has_error:
-            self.has_eror = has_error
+            self.has_error = has_error
 
     def verify_commands(self):
         has_error = False

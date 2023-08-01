@@ -9,7 +9,7 @@ commands:
     description: Location of the prefetch files.
 tags:
   - execution
-  - disk-iamge
+  - disk-image
   - command
 links:
   -
