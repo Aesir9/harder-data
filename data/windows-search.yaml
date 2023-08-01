@@ -1,9 +1,10 @@
 name: Windows Search Database
 description: |
-  Windows Search indexes files located:
+  Windows Search indexes following directories and applications:
   - C:\Users\* (AppData is excluded)
   - C:\ProgramData\Microsoft\Windows\Start Menu\Programs\*
-  - Outlook (when enabled)
+  - Outlook
+  - Internet Browsing History
 commands:
   - command: C:\ProgramData\Microsoft\Search\Data\Applications\Windows\Windows.edb
     description: Location of Windows.edb
