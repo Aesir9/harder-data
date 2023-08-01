@@ -7,7 +7,7 @@ out_json = 'data.json'
 required_fields = ['name', 'description', 'commands', 'tags']
 command_fields = ['command', 'description']
 tag_fields = ['name', 'slug']
-optional_fields = ['references']
+optional_fields = ['references', 'links']
 
 # Output Json needs to have these Keys:
 # {
@@ -22,6 +22,7 @@ optional_fields = ['references']
 #   tags: [
 #     { name: 'Execution', slug: 'execution' }
 #   ]
+#   links: [ LIST OF SLUGS ]
 # }
 
 # yapf: disable
@@ -39,55 +40,98 @@ TAGS = [
 ]
 # yapf: enable
 
-if __name__ == '__main__':
-    files = os.listdir('data/')
-    tools = []
-    for i, file in enumerate(files):
-        if not file.endswith('.yaml'):
-            continue
 
-        file_path = os.path.join('data', file)
-        with open(file_path, 'r', encoding='UTF-8') as f:
+class Tool:
+    def __init__(self, file_name, i):
+        self.fpath = os.path.join('data', file_name)
+        self.file_name = file_name
+        self.slug = file.replace('.yaml', '')
+        self.id = i
+
+        self.has_error = False
+        self.error_with = []
+
+        data = None
+        with open(self.fpath, 'r', encoding='UTF-8') as f:
             try:
                 data = yaml.safe_load(f)
             except yaml.YAMLError as e:
-                print(e)
-        print(data)
-        # Check required_fields
-        found_missing = False
+                self.has_error = True
+                self.error_with(f'YAML:: Failed parsing yaml data: {str(e)}')
+
+        self.data = data
+
+    def parse(self):
+        # add fields
+        self.data['slug'] = self.slug
+        self.data['id'] = self.id
+
+        # verify format
+        self.verify_fields()
+        self.verify_tags()
+        self.verify_commands()
+
+    def verify_fields(self):
+        has_error = False
         for reqfield in required_fields:
-            if reqfield not in data:
-                found_missing = True
-                print(f'ERROR MISSING: {reqfield}')
+            if reqfield not in self.data:
+                has_error = True
+                self.error_with.append(f'FILE :: Missing field: {reqfield}')
 
-        if found_missing:
-            print(f'Ignoring: {file}')
-            continue
+        if has_error:
+            self.has_error = has_error
 
-        # gen required fields
-        data['slug'] = file.replace('.yaml', '')
-        data['id'] = i
-
-        # check tags
-        found_invalid_tag = False
-        tags = data.pop('tags')
-        data['tags'] = []
+    def verify_tags(self):
+        has_error = False
+        tags = self.data.pop('tags', [])
+        self.data['tags'] = []
         for tag in tags:
             try:
                 full_tag = next(t for t in TAGS if t['slug'] == tag)
             except StopIteration:
-                print(f'INVALID TAG: {tag}')
-                found_invalid_tag = True
+                self.error_with.append(f'TAGS :: Invalid tag: {tag}')
+                has_error = True
                 continue
-            data['tags'].append(full_tag)
+            self.data['tags'].append(full_tag)
+        if has_error:
+            self.has_eror = has_error
 
-        # check commands
-        for cmd in data['commands']:
+    def verify_commands(self):
+        has_error = False
+        if 'commands' not in self.data:
+            self.has_eror = True
+            return
+
+        for cmd in self.data['commands']:
             for cmd_field in command_fields:
                 if cmd_field not in cmd:
-                    print(f'ERROR MISSING: {cmd_field}')
+                    self.error_with.append(f'COMMANDS :: Missing field: {cmd_field}')
+                    has_error = True
+        if has_error:
+            self.has_eror = has_error
 
-        tools.append(data)
 
+if __name__ == '__main__':
+    files = os.listdir('data/')
+    tools = []
+    file_errors = 0
+
+    for i, file in enumerate(files):
+        if not file.endswith('.yaml'):
+            continue
+
+        tool = Tool(file, i)
+        tool.parse()
+        if tool.has_error:
+            print(f'Errors with file: {tool.fpath}')
+            for line in tool.error_with:
+                print(line)
+            print('Supplied fields: ' + ', '.join(tool.data.keys()) + '\n')
+            file_errors += 1
+        else:
+            print(f'Adding: {tool.slug}')
+            tools.append(tool.data)
+
+    print(f'TOOLS: {len(tools)} :: ERRORS: {file_errors}')
     with open(out_json, 'w', encoding='UTF-8') as out:
         json.dump(tools, out)
