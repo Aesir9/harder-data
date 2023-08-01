@@ -1,7 +1,7 @@
 name: "Event ID: 4624"
 description: "Successful authentication of an user. Logged in System EventLog."
 commands:
-  - commmand: |
+  - command: |
       Get-EventLog -LogName Security | Where-Object {$_.EventID -eq 4624}
     description: "Some Desc"
 tags:

@@ -81,6 +81,12 @@ if __name__ == '__main__':
                 continue
             data['tags'].append(full_tag)
 
+        # check commands
+        for cmd in data['commands']:
+            for cmd_field in command_fields:
+                if cmd_field not in cmd:
+                    print(f'ERROR MISSING: {cmd_field}')
+
         tools.append(data)
 
     with open(out_json, 'w', encoding='UTF-8') as out:
