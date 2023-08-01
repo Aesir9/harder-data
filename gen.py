@@ -29,6 +29,7 @@ autogen_fields = ['slug', 'id']
 TAGS = [
     # what are you looking for?
     {'name': 'Execution',       'slug': 'execution'},
+    {'name': 'Artifact',        'slug': 'artifact'},
     {'name': 'Download',        'slug': 'download'},
     {'name': 'Authentication',  'slug': 'authentication'},
     {'name': 'Command',         'slug': 'command'},

@@ -3,6 +3,8 @@ description: "Identify the configured timezone of the system."
 commands:
   - command: SYSTEM\ControlSet001\Control\TimeZoneInformation
     description: Registry SYSTEM hive
+  - command: python .\vol.py  -f ..\..\File-Server-1.mem imageinfo
+    description: Get the timezone with volatility2.
 tags:
   - registry
   - memory

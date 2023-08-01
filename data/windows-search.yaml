@@ -1,0 +1,17 @@
+name: Windows Search Database
+description: |
+  Windows Search indexes files located:
+  - C:\Users\* (AppData is excluded)
+  - C:\ProgramData\Microsoft\Windows\Start Menu\Programs\*
+  - Outlook (when enabled)
+commands:
+  - command: C:\ProgramData\Microsoft\Search\Data\Applications\Windows\Windows.edb
+    description: Location of Windows.edb
+tags:
+  - artifact
+  - download
+  - disk-image
+links:
+  -
+references:
+  - https://moaistory.blogspot.com/2018/10/winsearchdbanalyzer.html
