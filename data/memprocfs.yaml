@@ -1,0 +1,12 @@
+name: MemProcFs
+description: Analyze memory dumps in a directory view.
+commands:
+  - command: memprocfs -forensic 1 -device .\flounder-pc-memdump.elf
+    description: This will mount the memory dump on M:\
+tags:
+  - memory
+  - execution
+links:
+  - volatility
+references:
+  - https://github.com/ufrisk/MemProcFS

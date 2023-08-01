@@ -7,6 +7,7 @@ commands:
 tags:
   - event-log
   - authentication
+  - account
 links:
   - event-id-4624
   - event-id-4720

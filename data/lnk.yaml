@@ -1,0 +1,12 @@
+name: LNK Files
+description: Windows shortcut files.
+commands:
+  - command: LEcmd.exe -d C:\Image\ --csv C:\Users\master\Desktop --csvf lnk.csv
+    description: Recursively parse the directory C:\Image\ with LEcmd.exe and create an csv export.
+tags:
+  - execution
+  - disk-image
+links:
+  -
+references:
+  - https://belkasoft.com/forensic-analysis-of-lnk-files

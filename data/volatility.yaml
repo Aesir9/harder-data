@@ -1,0 +1,27 @@
+name: Volatility
+description: An advanced memory forensics framework
+commands:
+  - command: python .\vol.py  -f ..\..\File-Server-1.mem imageinfo
+    description: Basic information of the memory image.
+  - command: |
+      vol2.exe -f "C:\Artifacts\DumpMe\Triage-Memory.mem" --profile=Win7SP1x64 -g 0xf800029f80a0
+      pslist > pslist.txt
+      pstree > pstree.txt
+      netscan > netscan.txt
+      psxview > psxview.txt
+      filescan > filescan.txt
+      consoles > consoles.txt
+      timeliner > timeliner.txt
+      hashdump > hashdump.txt
+      vadinfo > vadinfo.txt
+      mftparser > mft.txt
+      cmdscan > cmdscan.txt
+    description: Analysis with volatility.
+tags:
+  - memory
+  - execution
+links:
+  - memoprocfs
+references:
+  - https://github.com/volatilityfoundation/volatility
+  - https://github.com/volatilityfoundation/volatility3
