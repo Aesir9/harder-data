@@ -76,6 +76,14 @@ class Tool:
         self.verify_tags()
         self.verify_commands()
 
+        # strip emptry optional tags
+        for opt in optional_fields:
+            if opt in self.data:
+                if isinstance(self.data[opt], list):
+                    # check if the first entry is None
+                    if len(self.data[opt]) > 0 and self.data[opt][0] is None:
+                        self.data.pop(opt)
+
     def verify_fields(self):
         has_error = False
         # check if fields are missing
