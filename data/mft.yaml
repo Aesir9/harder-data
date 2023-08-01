@@ -1,0 +1,14 @@
+name: Master File Table
+description: Master File Table ($MFT) is a database that tracks all objects (files and folders) changes on an NTFS filesystem. Each object (file/folder) has its own record in the $MFT file, containing metadata about that file.
+commands:
+  - command: MFTECmd.exe -f "C:\$MFT" --csv "C:\Users\master\Desktop" --csvf mft_output.csv
+    description: Parses $MFT and creates a csv file.
+tags:
+  - disk-image
+  - artifact
+  - download
+links:
+  - ntfs-log-tracker
+references:
+  - https://www.unh4ck.com/dfir/dfir-01-usdmft
+  - https://binaryforay.blogspot.com/2018/06/introducing-mftecmd.html

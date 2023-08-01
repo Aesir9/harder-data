@@ -1,0 +1,17 @@
+name: NTFS Log Tracker
+description: This tool can parse $LogFile, $UsnJrnl:$J of NTFS and carve UsnJrnl record in multiple files(unallocated dump, file slack, pagefile.sys, memory dump, vss, ...).
+commands:
+  - command: |
+      C:\Artifacts\C\$LogFile
+      C:\Artifacts\C\$Extend\$J
+      C:\Artifacts\C\$MFT
+    description: GUI Tool, select $LogFile, $J and $MFT.
+tags:
+  - artifact
+  - disk-image
+  - execution
+  - download
+links:
+  - mft
+references:
+  - https://sites.google.com/site/forensicnote/ntfs-log-tracker

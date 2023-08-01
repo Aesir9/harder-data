@@ -1,0 +1,12 @@
+name: EvtxECmd
+description: Parses evtx files, from Eric Zimmerman.
+commands:
+  - command: .\EvtxEcmd.exe -d \windows\system32\winevt\logs --csv desktop --csvf eventlogs.csv
+    description: Parses recursively evtx files and creates a csv file. Use Time Line Explorer to view results.
+tags:
+  - event-log
+  - disk-image
+links:
+  -
+references:
+  - https://isc.sans.edu/diary/Introduction+to+EvtxEcmd+Evtx+Explorer/25858

@@ -1,6 +1,10 @@
-import os
-import yaml
 import json
+import os
+import string
+
+import yaml
+
+ALLOWED_SLUG_CHARS = '-{}{}'.format(string.ascii_letters, string.digits)
 
 out_json = 'data.json'
 
@@ -51,7 +55,7 @@ class Tool:
     def __init__(self, file_name, i):
         self.fpath = os.path.join('data', file_name)
         self.file_name = file_name
-        self.slug = file_name.replace('.yaml', '')
+        self.slug = file_name.replace('.yaml', '').lower()
         self.id = i
 
         self.has_error = False
@@ -68,6 +72,12 @@ class Tool:
         self.data = data
 
     def parse(self):
+        # verify slug
+        illegal = [c for c in self.slug if c not in ALLOWED_SLUG_CHARS]
+        if len(illegal) > 0:
+            self.has_error = True
+            self.error_with.append(f'FILE :: Slug not valid, illegal chars: "{", ".join(illegal)}"')
+
         # add fields
         self.data['slug'] = self.slug
         self.data['id'] = self.id
@@ -77,7 +87,7 @@ class Tool:
         self.verify_tags()
         self.verify_commands()
 
-        # strip emptry optional tags
+        # strip empty optional tags
         for opt in optional_fields:
             if opt in self.data:
                 if isinstance(self.data[opt], list):
@@ -123,7 +133,7 @@ class Tool:
     def verify_commands(self):
         has_error = False
         if 'commands' not in self.data:
-            self.has_eror = True
+            self.has_error = True
             return
 
         for cmd in self.data['commands']:
