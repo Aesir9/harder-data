@@ -50,7 +50,7 @@ class Tool:
     def __init__(self, file_name, i):
         self.fpath = os.path.join('data', file_name)
         self.file_name = file_name
-        self.slug = file.replace('.yaml', '')
+        self.slug = file_name.replace('.yaml', '')
         self.id = i
 
         self.has_error = False
@@ -108,12 +108,12 @@ class Tool:
             return
 
         for cmd in self.data['commands']:
-            for cmd_field in command_fields:
-                if cmd_field not in cmd:
+            for cmd_field in cmd.keys():
+                if cmd_field not in command_fields:
                     self.error_with.append(f'COMMANDS :: Missing field: {cmd_field}')
                     has_error = True
         if has_error:
-            self.has_eror = has_error
+            self.has_error = has_error
 
 
 if __name__ == '__main__':

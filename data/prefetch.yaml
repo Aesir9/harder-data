@@ -5,7 +5,7 @@ description: |
 commands:
   - command: .\PECmd.exe -d C:\Windows\Prefetch\ --csv C:\Artifacts\LocalEventLogs
     description: Parse Prefetch with PECmd.exe
-  - commmand: C:\Windows\Prefetch\*.pf
+  - command: C:\Windows\Prefetch\*.pf
     description: Location of the prefetch files.
 tags:
   - execution
