@@ -1,5 +1,5 @@
 name: "Timezone"
-description: "Identify the set timezone of the system."
+description: "Identify the configured timezone of the system."
 commands:
   - command: SYSTEM\ControlSet001\Control\TimeZoneInformation
     description: Registry SYSTEM hive
