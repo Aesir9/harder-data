@@ -21,7 +21,7 @@ tags:
   - memory
   - execution
 links:
-  - memoprocfs
+  - memprocfs
 references:
   - https://github.com/volatilityfoundation/volatility
   - https://github.com/volatilityfoundation/volatility3

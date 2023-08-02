@@ -7,6 +7,7 @@ commands:
 tags:
   - event-log
   - authentication
+show: description
 links:
   - event-id-4625
 references:

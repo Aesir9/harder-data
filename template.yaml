@@ -4,7 +4,20 @@ commands:
   - command:
     description:
 tags:
-  -
+  - execution
+  - artifact
+  - download
+  - authentication
+  - command
+  - account
+  - persistence
+  - memory
+  - event-log
+  - registry
+  - network-capture
+  - office
+  - disk-image
+show: description | command
 links:
   -
 references:

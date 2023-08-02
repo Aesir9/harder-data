@@ -8,6 +8,7 @@ tags:
   - event-log
   - authentication
   - account
+show: description
 links:
   - event-id-4624
   - event-id-4726

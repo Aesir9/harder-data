@@ -11,7 +11,8 @@ out_json = 'data.json'
 required_fields = ['name', 'description', 'commands', 'tags']
 command_fields = ['command', 'description']
 tag_fields = ['name', 'slug']
-optional_fields = ['references', 'links']
+optional_fields = ['references', 'links', 'show']
+show_options = ['description', 'command']
 autogen_fields = ['slug', 'id']
 # Output Json needs to have these Keys:
 # {
@@ -26,7 +27,8 @@ autogen_fields = ['slug', 'id']
 #   tags: [
 #     { name: 'Execution', slug: 'execution' }
 #   ]
-#   links: [ LIST OF SLUGS ]
+#   links: [ LIST OF SLUGS ],
+#   show: description | command
 # }
 
 # yapf: disable
@@ -86,6 +88,7 @@ class Tool:
         self.verify_fields()
         self.verify_tags()
         self.verify_commands()
+        self.verify_show()
 
         # strip empty optional tags
         for opt in optional_fields:
@@ -140,6 +143,18 @@ class Tool:
             for cmd_field in cmd.keys():
                 if cmd_field not in command_fields:
                     self.error_with.append(f'COMMANDS :: Missing field: {cmd_field}')
+                    has_error = True
+        if has_error:
+            self.has_error = has_error
+
+    def verify_show(self):
+        has_error = False
+        if 'show' in self.data:
+            if self.data['show'] is None:
+                self.data.pop('show')
+            else:
+                if self.data['show'] not in show_options:
+                    self.error_with.append('SHOW :: Invalid field: {}'.format(self.data['show']))
                     has_error = True
         if has_error:
             self.has_error = has_error
