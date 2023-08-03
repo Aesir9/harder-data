@@ -1,0 +1,17 @@
+name: Registry Hives
+description: Registry hives and their location.
+commands:
+  - command: |-
+      C:\Windows\System32\config\SAM
+      C:\Windows\System32\config\DEFAULT
+      C:\Windows\System32\config\SOFTWARE
+      C:\Windows\System32\config\SECURITY
+      C:\Windows\System32\config\SOFTWARE
+      C:\Windows\System32\config\SYSTEM
+    description: HKLM
+  - command: |-
+      C:\Users\<user>\NTUSER.dat
+      C:\Users\<user>\AppData\Local\Microsoft\Windows\USRCLASS.dat
+    description: NTUSER.dat & USRCLASS.dat
+tags:
+  - registry

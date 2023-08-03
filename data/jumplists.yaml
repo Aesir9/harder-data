@@ -1,0 +1,12 @@
+name: Jump Lists
+description: A system-provided menu that appears when the user right-clicks a program in the taskbar or Start menu.
+commands:
+  - command: |-
+      C:\Users\<User>\AppData\Roaming\Microsoft\Windows\Recent\AutomaticDestinations
+      C:\Users\<User>\AppData\Roaming\Microsoft\Windows\Recent\CustomDestinations
+    description: Location
+tags:
+  - disk-image
+  - execution
+references:
+  - https://www.sans.org/tools/jumplist-explorer/

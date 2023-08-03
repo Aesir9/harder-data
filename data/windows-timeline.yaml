@@ -1,0 +1,15 @@
+name: Windows Timeline
+description: "Windows Timeline feature if you press WIN + TAB."
+commands:
+  - command: WxTCmd.exe -f "C:\Users\eric\AppData\Local\ConnectedDevicesPlatform\L.eric\ActivitiesCache.db" --csv c:\temp
+    description: Parsing the Windows Timeline database with WxTCmd.exe
+tags:
+  - execution
+  - artifact
+  - artifact
+  - disk-image
+show:
+links:
+  -
+references:
+  - https://github.com/EricZimmerman/WxTCmd
