@@ -1,9 +1,9 @@
-name: VHost Enumeration with ffuf
-description:
+name: VHost
+description: Enumerating vhosts via web.
 commands:
   - command: |
       ffuf -c -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -H "Host: FUZZ.$DOMAIN" -u http://$DOMAIN -fs 178
-    description: VHost Enumeration
+    description: Vhost web enumeration with ffuf, change -fc parameter.
 tags:
   - enumeration
   - web

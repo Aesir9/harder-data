@@ -182,10 +182,12 @@ class Tool:
 
 
 if __name__ == '__main__':
-    tools = []
+    total_tools = 0
     file_errors = 0
 
     for category in ['red', 'blue']:
+        tools = []
+
         print(f'CATEGORY: {category}')
         files = os.listdir(category)
         for i, file in enumerate(files):
@@ -207,4 +209,6 @@ if __name__ == '__main__':
         with open(out_json[category], 'w', encoding='UTF-8') as out:
             json.dump(tools, out)
 
-    print(f'TOOLS: {len(tools)} :: ERRORS: {file_errors}')
+        total_tools += len(tools)
+
+    print(f'TOOLS: {total_tools} :: ERRORS: {file_errors}')

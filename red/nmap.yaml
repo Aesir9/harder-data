@@ -1,0 +1,14 @@
+name: nmap
+description: Discover open ports
+commands:
+  - command: nmap -sCV -o nmap $IP
+    description: Default scan with scripts
+  - command: nmap -Pn -p- -o full $IP
+    description: Full scan
+tags:
+  - enumeration
+show:
+links:
+  -
+references:
+  -
