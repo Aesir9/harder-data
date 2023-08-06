@@ -6,7 +6,6 @@ commands:
 tags:
   - execution
   - artifact
-  - artifact
   - disk-image
 show:
 links:

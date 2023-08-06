@@ -120,7 +120,7 @@ class Tool:
 
     def verify_tags(self):
         has_error = False
-        tags = self.data.pop('tags', [])
+        tags = set(self.data.pop('tags', []))
         self.data['tags'] = []
         for tag in tags:
             try:
