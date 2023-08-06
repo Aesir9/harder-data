@@ -6,7 +6,7 @@ import yaml
 
 ALLOWED_SLUG_CHARS = '-{}{}'.format(string.ascii_letters, string.digits)
 
-out_json = 'data.json'
+out_json = {'red': 'red.json', 'blue': 'blue.json'}
 
 required_fields = ['name', 'description', 'commands', 'tags']
 command_fields = ['command', 'description']
@@ -32,7 +32,7 @@ autogen_fields = ['slug', 'id']
 # }
 
 # yapf: disable
-TAGS = [
+BLUE_TAGS = [
     # what are you looking for?
     {'name': 'Execution',       'slug': 'execution'},
     {'name': 'Artifact',        'slug': 'artifact'},
@@ -50,15 +50,30 @@ TAGS = [
     {'name': 'MS Office',       'slug': 'office'},
     {'name': 'Disk Image',      'slug': 'disk-image'},
 ]
+
+RED_TAGS = [
+    # Attack Types
+    {'name': 'Enumeration',          'slug': 'enumeration'},
+    {'name': 'Exploitation',         'slug': 'exploitation'},
+    {'name': 'Privilege Escalation', 'slug': 'privilege-escalation'},
+    {'name': 'Persistence',          'slug': 'persistence'},
+
+    # Targets
+    {'name': 'Web',        'slug': 'web'},
+    {'name': 'SMB',        'slug': 'smb'},
+    {'name': 'LDAP',       'slug': 'ldap'},
+    {'name': 'PowerShell', 'slug': 'powershell'},
+]
 # yapf: enable
 
 
 class Tool:
-    def __init__(self, file_name, i):
-        self.fpath = os.path.join('data', file_name)
+    def __init__(self, file_name, i, category):
+        self.fpath = os.path.join(category, file_name)
         self.file_name = file_name
         self.slug = file_name.replace('.yaml', '').lower()
         self.id = i
+        self.category = category
 
         self.has_error = False
         self.error_with = []
@@ -119,12 +134,18 @@ class Tool:
             self.has_error = has_error
 
     def verify_tags(self):
+        TAG_MAP = None
+        if self.category == "red":
+            TAG_MAP = RED_TAGS
+        elif self.category == "blue":
+            TAG_MAP = BLUE_TAGS
+
         has_error = False
         tags = set(self.data.pop('tags', []))
         self.data['tags'] = []
         for tag in tags:
             try:
-                full_tag = next(t for t in TAGS if t['slug'] == tag)
+                full_tag = next(t for t in TAG_MAP if t['slug'] == tag)
             except StopIteration:
                 self.error_with.append(f'TAGS :: Invalid tag: {tag}')
                 has_error = True
@@ -161,26 +182,29 @@ class Tool:
 
 
 if __name__ == '__main__':
-    files = os.listdir('data/')
     tools = []
     file_errors = 0
 
-    for i, file in enumerate(files):
-        if not file.endswith('.yaml'):
-            continue
+    for category in ['red', 'blue']:
+        print(f'CATEGORY: {category}')
+        files = os.listdir(category)
+        for i, file in enumerate(files):
+            if not file.endswith('.yaml'):
+                continue
 
-        tool = Tool(file, i)
-        tool.parse()
-        if tool.has_error:
-            print(f'Errors with file: {tool.fpath}')
-            for line in tool.error_with:
-                print(line)
-            print('Supplied fields: ' + ', '.join(tool.data.keys()) + '\n')
-            file_errors += 1
-        else:
-            print(f'Adding: {tool.slug}')
-            tools.append(tool.data)
+            tool = Tool(file, i, category)
+            tool.parse()
+            if tool.has_error:
+                print(f'Errors with file: {tool.fpath}')
+                for line in tool.error_with:
+                    print(line)
+                print('Supplied fields: ' + ', '.join(tool.data.keys()) + '\n')
+                file_errors += 1
+            else:
+                print(f'Adding: {tool.slug}')
+                tools.append(tool.data)
+
+        with open(out_json[category], 'w', encoding='UTF-8') as out:
+            json.dump(tools, out)
 
     print(f'TOOLS: {len(tools)} :: ERRORS: {file_errors}')
-    with open(out_json, 'w', encoding='UTF-8') as out:
-        json.dump(tools, out)

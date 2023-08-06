@@ -1,0 +1,19 @@
+name:
+description:
+commands:
+  - command:
+    description:
+tags:
+  - enumeration
+  - exploitation
+  - privilege-escalation
+  - persistence
+  - web
+  - smb
+  - ldap
+  - powershell
+show:
+links:
+  -
+references:
+  -
