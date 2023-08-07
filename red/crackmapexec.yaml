@@ -3,7 +3,7 @@ description: |
   This package is a swiss army knife for pentesting Windows/Active Directory environments.
   To add every command for this tool would be too much.
 commands:
-  - command: crackmapexec smb $P --shares -u '' -p ''
+  - command: crackmapexec smb $IP --shares -u '' -p ''
     description: Anonymous enumeration of SMB shares.
   - command: crackmapexec smb $IP --local-auth -u $USERNAME -p $PASSWORD --sam
     description: Dump SAM secrets with local administrator
