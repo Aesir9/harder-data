@@ -1,0 +1,19 @@
+name: impacket-smbclient
+description: SMB Client from the impacket framework.
+commands:
+  - command: |
+      impacket-smbclient -dc-ip $IP $DOMAIN/$USERNAME@$IP
+      shares
+      use <SHARE>
+      ls
+      get <SOMEFILE>
+    description: Connect to a SMB share with authentication to a Domain Controller.
+tags:
+  - enumeration
+  - privilege-escalation
+  - smb
+show:
+links:
+  - smbclient
+references:
+  -

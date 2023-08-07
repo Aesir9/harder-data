@@ -1,0 +1,20 @@
+name: smbclient
+description: ftp-like client to access SMB/CIFS resources on servers.
+commands:
+  - command: smbclient -L //$DOMAIN -N -I $IP
+    description: Anonymous enumeration of smb shares
+  - command: |
+      smbclient //$IP/Development -U $DOMAIN/anonymous
+      recurse ON
+      prompt OFF
+      mget *
+    description: Connect to SMB share Development and recursively download everything.
+tags:
+  - enumeration
+  - exploitation
+  - smb
+show:
+links:
+  - impacket-smbclient
+references:
+  -

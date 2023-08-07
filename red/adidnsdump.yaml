@@ -1,0 +1,14 @@
+name: adidnsdump
+description: Dump Windows DNS information with an authenticated user.
+commands:
+  - command: adidnsdump -u $DOMAIN\\$USER ldap://$IP -r
+    description: Dumping DNS records
+tags:
+  - enumeration
+  - exploitation
+  - ldap
+show:
+links:
+  -
+references:
+  - https://github.com/dirkjanm/adidnsdump

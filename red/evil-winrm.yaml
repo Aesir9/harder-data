@@ -1,0 +1,15 @@
+name: Evil-WinRM
+description: The ultimate WinRM shell for hacking/pentesting.
+commands:
+  - command: evil-winrm -i $IP -u $USERNAME -p '$PASSWORD'
+    description:
+  - command: evil-winrm -i $IP -u $USERNAME -H $HASH
+    description: Authenticate with NTLM hash.
+tags:
+  - exploitation
+  - persistence
+show:
+links:
+  -
+references:
+  - https://github.com/Hackplayers/evil-winrm

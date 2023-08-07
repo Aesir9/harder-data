@@ -1,0 +1,14 @@
+name: Responder
+description: Man in the middle to catch NTLM hashes. Responder is an LLMNR, NBT-NS, and MDNS poisoner tool with different capabilities, one of them is the possibility to set up fake services, including SMB, to steal NetNTLM v1/v2 hashes.
+commands:
+  - command: responder -I tun0
+    description: Start responder on teh interface tun0.
+tags:
+  - enumeration
+  - smb
+show:
+links:
+  - inveigh
+  - hashgrab
+references:
+  - https://github.com/Kevin-Robertson/Inveigh

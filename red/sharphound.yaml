@@ -1,0 +1,14 @@
+name: SharpHound
+description: Collect Bloodhound information with SharpHound.exe
+commands:
+  - command: .\SharpHound.exe -c All,GPOLocalGroup
+    description: Execute SharpHound locally on a compromised system. (Noisy)
+tags:
+  - enumeration
+  - exploitation
+  - ldap
+show:
+links:
+  - bloodhoundpy
+references:
+  - https://bloodhound.readthedocs.io/en/latest/data-collection/sharphound-all-flags.html

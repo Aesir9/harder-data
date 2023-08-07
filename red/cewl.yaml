@@ -1,0 +1,15 @@
+name: CeWL
+description: Custom Word List Generator.
+commands:
+  - command: cewl https://$DOMAIN -d 4 -m 6 --lowercase -w $DOMAIN.wordlist
+    description: Basic wordlist generation.
+  - command: cewl https://$IP -d 4 -m 6 --lowercase -w $IP.wordlist
+    description: Basic wordlist generation.
+tags:
+  - enumeration
+  - web
+show:
+links:
+  -
+references:
+  - https://github.com/digininja/CeWL

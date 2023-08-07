@@ -1,0 +1,14 @@
+name: Inveigh
+description: .NET IPv4/IPv6 machine-in-the-middle tool for penetration testers.
+commands:
+  - command: .\Inveigh.exe
+    description: Start Inveigh in an elevated terminal!
+tags:
+  - enumeration
+  - smb
+show:
+links:
+  - responder
+  - hashgrab
+references:
+  - https://github.com/Kevin-Robertson/Inveigh

@@ -1,0 +1,15 @@
+name: Certify
+description: Active Directory Certificate Services enumeration and abuse.
+commands:
+  - command: .\Certify.exe find /vulnerable
+    description: Identify vulnerable certificates.
+tags:
+  - enumeration
+  - exploitation
+  - privilege-escalation
+  - ldap
+show:
+links:
+  - certipy
+references:
+  - https://github.com/GhostPack/Certify
