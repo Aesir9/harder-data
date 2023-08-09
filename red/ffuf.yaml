@@ -1,9 +1,9 @@
 name: ffuf
 description: Fast web fuzzer written in Go
 commands:
-  - command: ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -ic -u "http://$IP/FUZZ"
+  - command: ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt -ic -u "http://$IP/FUZZ"
     description: "Target: Ip"
-  - command: ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -ic -u "http://$DOMAIN/FUZZ"
+  - command: ffuf -w /usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt -ic -u "http://$DOMAIN/FUZZ"
     description: "Target: Domain"
 tags:
   - enumeration
