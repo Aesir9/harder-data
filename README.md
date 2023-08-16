@@ -2,7 +2,7 @@
 
 Data for the app [https://harder.vercel.app/](https://harder.vercel.app/).
 
-## Rules
+## Overview
 
 - There are two categories current: Red, blue
 - Keep entries slim, this is not a wiki!
@@ -10,7 +10,7 @@ Data for the app [https://harder.vercel.app/](https://harder.vercel.app/).
 
 ## How to add an entry
 
-- Copy `template.yaml` into the `data` folder
+- Copy `template-blue.yaml` or `template-red.yaml` into the `blue` respectively `red` folder.
 - Rename the newly created file, the filename is also the `slug` value.
 - Fill out information.
 - Run `python gen.py`
