@@ -4,7 +4,7 @@ Data for the app [https://harder.vercel.app/](https://harder.vercel.app/).
 
 ## Rules
 
-- First command in the commands array will be visible in the overview.
+- There are two categories current: Red, blue
 - Keep entries slim, this is not a wiki!
 - You can link between entries with the `slug` key.
 
