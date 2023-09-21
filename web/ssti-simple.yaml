@@ -1,0 +1,18 @@
+name: SSTI identify
+description: Basic commands to identify template injection.
+commands:
+  - command: ${{<%[%'"}}%\.
+    description: Polyglot
+  - command: |
+      ${7*7}
+      {{7*7}}
+      a{*aa*}b
+      {{7*'7'}}
+    description: Payloads for different templating processors.
+tags:
+  - ssti
+show:
+links:
+  -
+references:
+  -

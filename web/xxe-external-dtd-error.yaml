@@ -1,4 +1,4 @@
-name: Erorr based XXE with external dtd
+name: Error based XXE with external dtd
 description:
 commands:
   - command: |
