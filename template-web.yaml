@@ -1,0 +1,33 @@
+name:
+description:
+commands:
+  - command:
+    description:
+tags:
+  - sqli
+  - authentication
+  - directory-traversal
+  - command-injection
+  - idor
+  - access-control
+  - file-upload
+  - ssrf
+  - xxe
+  - xxs
+  - csrf
+  - cors
+  - clickjacking
+  - websocket
+  - deserialization
+  - graphql
+  - ssti
+  - web-cache
+  - http-request-smuggling
+  - oauth
+  - jwt
+  - prototype-pollution
+show:
+links:
+  -
+references:
+  -

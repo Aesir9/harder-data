@@ -6,7 +6,7 @@ import yaml
 
 ALLOWED_SLUG_CHARS = '-{}{}'.format(string.ascii_letters, string.digits)
 
-out_json = {'red': 'red.json', 'blue': 'blue.json'}
+out_json = {'red': 'red.json', 'blue': 'blue.json', 'web': 'web.json'}
 
 required_fields = ['name', 'description', 'commands', 'tags']
 command_fields = ['command', 'description']
@@ -66,6 +66,37 @@ RED_TAGS = [
     {'name': 'PowerShell', 'slug': 'powershell'},
     {'name': 'RDP',        'slug': 'rdp'},
 
+]
+
+WEB_TAGS = [
+    # Vulnerabilities
+    {'name': 'SQLi',                   'slug': 'sqli'},
+    {'name': 'Authentication',         'slug': 'authentication'},
+    {'name': 'Directory Traversal',    'slug': 'directory-traversal'},
+    {'name': 'Command Injection',      'slug': 'command-injection'},
+    {'name': 'IDOR',                   'slug': 'idor'},
+    {'name': 'Access Control',         'slug': 'access-control'},
+    {'name': 'File Upload',            'slug': 'file-upload'},
+    {'name': 'SSRF',                   'slug': 'ssrf'},
+    {'name': 'XXE',                    'slug': 'xxe'},
+    {'name': 'XSS',                    'slug': 'xxs'},
+    {'name': 'CSRF',                   'slug': 'csrf'},
+    {'name': 'CORS',                   'slug': 'cors'},
+    {'name': 'Clickjacking',           'slug': 'clickjacking'},
+    {'name': 'WebSocket',              'slug': 'websocket'},
+    {'name': 'Deserialization',        'slug': 'deserialization'},
+    {'name': 'GraphQL',                'slug': 'graphql'},
+    {'name': 'SSTI',                   'slug': 'ssti'},
+    {'name': 'Web Cache',              'slug': 'web-cache'},
+    {'name': 'HTTP request smuggling', 'slug': 'http-request-smuggling'},
+    {'name': 'OAuth',                  'slug': 'oauth'},
+    {'name': 'JWT',                    'slug': 'jwt'},
+    {'name': 'Prototype Pollution',    'slug': 'prototype-pollution'},
+
+
+    # Attack
+    {'name': 'LFI',   'slug': 'lfi'},
+    {'name': 'OAST',  'slug': 'oast'},
 ]
 # yapf: enable
 
@@ -138,10 +169,12 @@ class Tool:
 
     def verify_tags(self):
         TAG_MAP = None
-        if self.category == "red":
+        if self.category == 'red':
             TAG_MAP = RED_TAGS
-        elif self.category == "blue":
+        elif self.category == 'blue':
             TAG_MAP = BLUE_TAGS
+        elif self.category == 'web':
+            TAG_MAP = WEB_TAGS
 
         has_error = False
         tags = set(self.data.pop('tags', []))
@@ -188,7 +221,7 @@ if __name__ == '__main__':
     total_tools = 0
     file_errors = 0
 
-    for category in ['red', 'blue']:
+    for category in ['red', 'blue', 'web']:
         tools = []
 
         print(f'CATEGORY: {category}')
