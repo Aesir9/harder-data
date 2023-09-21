@@ -79,7 +79,7 @@ WEB_TAGS = [
     {'name': 'File Upload',            'slug': 'file-upload'},
     {'name': 'SSRF',                   'slug': 'ssrf'},
     {'name': 'XXE',                    'slug': 'xxe'},
-    {'name': 'XSS',                    'slug': 'xxs'},
+    {'name': 'XSS',                    'slug': 'xss'},
     {'name': 'CSRF',                   'slug': 'csrf'},
     {'name': 'CORS',                   'slug': 'cors'},
     {'name': 'Clickjacking',           'slug': 'clickjacking'},

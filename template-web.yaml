@@ -13,7 +13,7 @@ tags:
   - file-upload
   - ssrf
   - xxe
-  - xxs
+  - xss
   - csrf
   - cors
   - clickjacking

