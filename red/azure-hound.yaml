@@ -1,0 +1,12 @@
+name: AzureHound
+description: Azure Data Exporter for BloodHound
+commands:
+  - command: azurehound list -u "$USERNAME" -p "$PASSWORD" -t "$TENANT"
+    description: Print all Azure Tenant data to stdout
+tags:
+  - enumeration
+show: description
+links:
+  -
+references:
+  - https://github.com/BloodHoundAD/AzureHound

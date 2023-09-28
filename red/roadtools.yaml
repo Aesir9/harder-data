@@ -1,0 +1,12 @@
+name: ROADtools
+description: A collection of Azure AD tools for offensive and defensive security purposes
+commands:
+  - command:
+    description:
+tags:
+  - enumeration
+show: description
+links:
+  -
+references:
+  - https://github.com/dirkjanm/ROADtools
