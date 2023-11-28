@@ -1,7 +1,8 @@
 name: Basic XSS over Websocket
 description:
 commands:
-  - command: { "message": "<img src=x onerror='alert()'>" }
+  - command: |
+      { "message": "<img src=x onerror='alert()'>" }
     description:
 tags:
   - xss
