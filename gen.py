@@ -97,6 +97,7 @@ WEB_TAGS = [
     # Attack
     {'name': 'LFI',   'slug': 'lfi'},
     {'name': 'OAST',  'slug': 'oast'},
+    {'name': 'RCE',   'slug': 'rce'},
 ]
 # yapf: enable
 

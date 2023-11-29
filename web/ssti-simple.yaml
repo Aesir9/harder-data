@@ -8,11 +8,13 @@ commands:
       {{7*7}}
       a{*aa*}b
       {{7*'7'}}
+      <%= 7*7 %>
+      <%= foobar %>
     description: Payloads for different templating processors.
 tags:
   - ssti
 show:
 links:
-  -
+  - ssti-ruby
 references:
   -
